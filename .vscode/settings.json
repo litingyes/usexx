@@ -4,7 +4,10 @@
     "bumpp",
     "changelogithub",
     "commitlint",
-    "preid"
+    "jiti",
+    "mkdist",
+    "preid",
+    "usets"
   ],
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
