@@ -9,24 +9,32 @@ export default defineBuildConfig([
         input: './src/',
         outDir: './dist/esm',
         format: 'esm',
+        esbuild: {
+          define: {
+            'import.meta.vitest': 'undefined',
+          },
+          minifySyntax: true,
+        },
       },
       {
         builder: 'mkdist',
         input: './src/',
         outDir: './dist/cjs',
         format: 'cjs',
+        esbuild: {
+          define: {
+            'import.meta.vitest': 'undefined',
+          },
+          minifySyntax: true,
+        },
       },
     ],
     declaration: true,
     alias: {
       '@': resolve(__dirname, './src'),
     },
-    rollup: {
-      emitCJS: true,
-      inlineDependencies: true,
-      cjsBridge: true,
-    },
     clean: true,
+    failOnWarn: false,
   },
   {
     entries: ['./src/index.ts'],
@@ -34,15 +42,18 @@ export default defineBuildConfig([
     alias: {
       '@': resolve(__dirname, './src'),
     },
+    replace: {
+      'import.meta.vitest': 'undefined',
+    },
     rollup: {
       inlineDependencies: true,
-      esbuild: {
-        minify: true,
-        format: 'esm',
-      },
       output: {
         format: 'esm',
         entryFileNames: 'index.mjs',
+        minifyInternalExports: true,
+      },
+      esbuild: {
+        minify: true,
       },
     },
     declaration: true,
@@ -55,18 +66,21 @@ export default defineBuildConfig([
     alias: {
       '@': resolve(__dirname, './src'),
     },
+    replace: {
+      'import.meta.vitest': 'undefined',
+    },
     rollup: {
       inlineDependencies: true,
-      esbuild: {
-        minify: true,
-      },
-      cjsBridge: true,
       output: {
         format: 'cjs',
         entryFileNames: 'index.js',
       },
+      esbuild: {
+        minify: true,
+      },
     },
     declaration: true,
     clean: true,
+    failOnWarn: false,
   },
 ])
