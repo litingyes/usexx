@@ -52,7 +52,7 @@
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "preprelease": "pnpm build && pnpm test",
-    "release": "bumpp && npm publish",
+    "release": "bumpp",
     "prepare": "husky"
   },
   "devDependencies": {
