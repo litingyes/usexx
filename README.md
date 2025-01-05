@@ -1,6 +1,6 @@
 # usexx
 
-> [!NOTE] WIP
+> [!NOTE]
 > We are working hard to develop more features.
 
 a tool kit for web development
