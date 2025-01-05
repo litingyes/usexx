@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": false,
-  "description": "a tool kit for web development with ts/js",
+  "description": "a tool kit for web development",
   "author": "litingyes <luz.liting@gmail.com> (https://litingyes.top/)",
   "license": "MIT",
   "homepage": "https://github.com/litingyes/usets#readme",
