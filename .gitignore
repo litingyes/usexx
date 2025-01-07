@@ -6,6 +6,7 @@ node_modules
 
 # output dir
 dist
+docs
 
 # test
 coverage

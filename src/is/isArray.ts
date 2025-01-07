@@ -1,3 +1,11 @@
+/**
+ * @param value The value to check
+ * @returns {boolean} Returns true if the value is an array, else false
+ *
+ * @see {@link https://lodash.com/docs#isArray}
+ *
+ * @since v0.1.0-beta.1
+ */
 export function isArray(value: unknown) {
   return Array.isArray(value)
 }

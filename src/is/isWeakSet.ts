@@ -1,3 +1,11 @@
+/**
+ * @param value The value to check
+ * @returns {boolean} Returns true if the value is a WeakSet object, else false
+ *
+ * @see {@link https://lodash.com/docs#isWeakSet}
+ *
+ * @since v0.1.0-beta.1
+ */
 export function isWeakSet(value: unknown) {
   return value instanceof WeakSet
 }

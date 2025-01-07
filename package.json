@@ -45,6 +45,8 @@
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "format": "eslint --fix .",
+    "docs:dev": "deno doc --html --name=\"usexx\" --unstable-sloppy-imports ./src/index.ts",
+    "docs:lint": "deno doc --lint --unstable-sloppy-imports ./src/index.ts",
     "commit": "git-cz",
     "prebuild": "jiti scripts/export.ts",
     "build": "unbuild",

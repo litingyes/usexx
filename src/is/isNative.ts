@@ -1,5 +1,13 @@
 import { isFunction } from './isFunction'
 
+/**
+ * @param value The value to check
+ * @returns {boolean} Returns true if the value is a pristine native function, else false
+ *
+ * @see {@link https://lodash.com/docs#isNative}
+ *
+ * @since v0.1.0-beta.1
+ */
 export function isNative(value: unknown) {
   return isFunction(value) && /native code/.test(value.toString())
 }
