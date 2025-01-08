@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
-import { globSync } from 'fast-glob'
+import { globSync } from 'glob'
 
 function exportIsModule() {
   const dir = resolve(__dirname, '../src/is')
@@ -30,7 +30,7 @@ function exportStringModule() {
 
 function exportModules() {
   const dir = resolve(__dirname, '../src')
-  const modules = globSync('*', { cwd: dir, onlyDirectories: true })
+  const modules = globSync('*/', { cwd: dir })
 
   let code = `/**
  * A tool kit for web development.
