@@ -1,0 +1,30 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: |
+          pnpm install
+          pnpm test:coverage
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: coverage
+      - uses: actions/deploy-pages@v4
