@@ -1,4 +1,5 @@
 import { isArray } from './isArray'
+import { isFunction } from './isFunction'
 import { isObject } from './isObject'
 
 /**
@@ -9,8 +10,8 @@ import { isObject } from './isObject'
  *
  * @since v0.1.0-beta.1
  */
-export function isPlainObject(value: unknown) {
-  return isObject(value) && !isArray(value)
+export function isPlainObject(value: unknown): value is Record<string, any> {
+  return isObject(value) && !isArray(value) && !isFunction(value)
 }
 
 if (import.meta.vitest) {
