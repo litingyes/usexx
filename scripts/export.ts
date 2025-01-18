@@ -28,6 +28,19 @@ function exportStringModule() {
   writeFileSync(resolve(dir, 'index.ts'), code)
 }
 
+function exportObjectModule() {
+  const dir = resolve(__dirname, '../src/object')
+  const files = globSync('**/*.ts', { cwd: dir, ignore: ['index.ts'] })
+
+  let code = `/**
+ * @module
+ */\n\n`
+  files.forEach((file) => {
+    code += `export * from './${basename(file, '.ts')}'\n`
+  })
+  writeFileSync(resolve(dir, 'index.ts'), code)
+}
+
 function exportModules() {
   const dir = resolve(__dirname, '../src')
   const modules = globSync('*/', { cwd: dir })
@@ -51,6 +64,7 @@ function exportModules() {
 function main() {
   exportIsModule()
   exportStringModule()
+  exportObjectModule()
 
   exportModules()
 }
