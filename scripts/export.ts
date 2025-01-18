@@ -2,6 +2,19 @@ import { writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { globSync } from 'glob'
 
+function exportFunctionModule() {
+  const dir = resolve(__dirname, '../src/function')
+  const files = globSync('**/*.ts', { cwd: dir, ignore: ['index.ts'] })
+
+  let code = `/**
+ * @module
+ */\n\n`
+  files.forEach((file) => {
+    code += `export * from './${basename(file, '.ts')}'\n`
+  })
+  writeFileSync(resolve(dir, 'index.ts'), code)
+}
+
 function exportIsModule() {
   const dir = resolve(__dirname, '../src/is')
   const files = globSync('**/*.ts', { cwd: dir, ignore: ['index.ts'] })
@@ -62,6 +75,7 @@ function exportModules() {
 }
 
 function main() {
+  exportFunctionModule()
   exportIsModule()
   exportStringModule()
   exportObjectModule()
