@@ -49,7 +49,7 @@
     "docs:lint": "deno doc --lint --unstable-sloppy-imports ./src/index.ts",
     "commit": "git-cz",
     "prebuild": "jiti scripts/export.ts",
-    "build": "unbuild",
+    "build": "unbuild && eslint --fix src/index.ts src/**/index.ts",
     "test": "vitest",
     "test:watch": "vitest watch",
     "test:run": "vitest run",
