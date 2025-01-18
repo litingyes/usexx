@@ -43,6 +43,10 @@ if (import.meta.vitest) {
     expect(merge({}, 1, '2', { name: 'merge' })).toEqual({ name: 'merge' })
     expect(merge({ name: 'Merge' }, { name: 'merge' })).toEqual({ name: 'merge' })
     expect(merge(
+      { name: 'merge' },
+      { pkg: { name: 'usexx', license: 'MIT' } },
+    )).toEqual({ name: 'merge', pkg: { name: 'usexx', license: 'MIT' } })
+    expect(merge(
       { name: 'Merge', pkg: { name: 'use', keyword: 'toolkit' } },
       { name: 'merge', pkg: { name: 'usexx', license: 'MIT' } },
     )).toEqual({ name: 'merge', pkg: { name: 'usexx', keyword: 'toolkit', license: 'MIT' } })

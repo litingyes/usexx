@@ -24,6 +24,9 @@ if (import.meta.vitest) {
   const { test, expect } = import.meta.vitest
 
   test('splitByCase', () => {
+    expect(splitByCase(1)).toEqual([])
+    expect(splitByCase('1-2', /-/)).toEqual(['1', '2'])
+
     expect(splitByCase('useXx')).toEqual(['use', 'Xx'])
     expect(splitByCase('use-xx')).toEqual(['use', 'xx'])
     expect(splitByCase('use xx')).toEqual(['use', 'xx'])
